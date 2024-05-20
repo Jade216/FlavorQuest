@@ -1,0 +1,17 @@
+{% extends "base.html" %} {% block content %}
+<h1>Weekly Meal Plan</h1>
+<ul>
+  {% for recipe in recipes %}
+  <li>
+    <a href="{{ url_for('recipe', recipe_id=recipe.id) }}">{{ recipe.name }}</a>
+    <form
+      action="{{ url_for('remove_from_mealplan', recipe_id=recipe.id) }}"
+      method="post"
+    >
+      <button type="submit">Remove from Meal Plan</button>
+    </form>
+  </li>
+  {% endfor %}
+</ul>
+
+{% endblock %}

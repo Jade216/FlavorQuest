@@ -1,0 +1,14 @@
+{% extends "base.html" %} {% block content %}
+<h1>Search Recipes</h1>
+<form method="POST">
+  {{ form.hidden_tag() }}
+  <p>
+    {{ form.ingredients.label }}<br />
+    {{ form.ingredients(size=64) }}<br />
+    {% for error in form.ingredients.errors %}
+    <span style="color: red">[{{ error }}]</span>
+    {% endfor %}
+  </p>
+  <p>{{ form.submit() }}</p>
+</form>
+{% endblock %}
