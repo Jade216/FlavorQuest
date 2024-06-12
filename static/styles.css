@@ -1,0 +1,745 @@
+
+/* Home Page Styles */
+.homepage-container {
+    text-align: center;
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+}
+
+.intro-section {
+    margin-bottom: 20px;
+}
+
+.intro-section h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+.intro-section p {
+    font-size: 1.2em;
+    line-height: 1.5;
+}
+
+.image-gallery {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.homepage-image {
+    width: 30%;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.features-section {
+    margin-top: 20px;
+}
+
+.features-section h2 {
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+.features-section ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.features-section li {
+    font-size: 1.2em;
+    line-height: 1.5;
+    margin-bottom: 10px;
+}
+
+body {
+    background-color: #121212; /* Dark grey background */
+    color: #f5f5f5; /* Light text color */
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+nav {
+    background-color: #1f1f1f; /* Slightly lighter dark grey */
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+nav a {
+    color: #f5f5f5; /* Light text color */
+    text-decoration: none;
+    margin-right: 15px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #ff6347; /* Tomato color for hover effect */
+}
+
+nav form {
+    display: flex;
+    align-items: center;
+}
+
+nav input[type="text"] {
+    padding: 5px;
+    border: none;
+    border-radius: 3px;
+    margin-right: 10px;
+}
+
+nav button {
+    background-color: #ff6347; /* Tomato color for button */
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+nav button:hover {
+    background-color: #ff4500; /* Darker tomato color for hover effect */
+}
+
+.alert {
+    padding: 10px;
+    margin: 15px;
+    border-radius: 3px;
+}
+
+.alert-success {
+    background-color: #4caf50; /* Green for success */
+    color: #fff;
+}
+
+.alert-danger {
+    background-color: #f44336; /* Red for danger */
+    color: #fff;
+}
+
+.alert-info {
+    background-color: #2196f3; /* Blue for info */
+    color: #fff;
+}
+
+.alert-warning {
+    background-color: #ff9800; /* Orange for warning */
+    color: #fff;
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+}
+
+h1, h2, h3 {
+    color: #ff6347; /* Tomato color for headings */
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    padding: 5px 0;
+}
+
+a {
+    color: #ff6347;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+button {
+    background-color: #ff6347;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #ff4500;
+}
+
+input, textarea, select {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+input[type="file"] {
+    padding: 5px;
+}
+
+footer {
+    background-color: #1f1f1f;
+    color: #f5f5f5;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Edit Profile Page Styles */
+.card {
+    border: none; /* Remove default border */
+    border-radius: 10px; /* Rounded corners */
+    background-color: #2b2b2b; /* Dark grey background */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+}
+
+.card-header {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    background-color: #e3d0e4; /* Tomato color background */
+    color: white; /* White text */
+    padding: 15px;
+    font-size: 1.5em;
+}
+
+#edit-profile {
+    color: #494242;
+}
+
+.card-body {
+    padding: 20px; /* Increased padding */
+}
+
+.form-control {
+    border-radius: 5px; /* Rounded input fields */
+    background-color: #333; /* Dark background for input */
+    color: #f5f5f5; /* Light text color for input */
+}
+
+.form-control::placeholder {
+    color: #ccc; /* Light placeholder text */
+}
+
+.btn-primary {
+    background-color: #dfd7e4; /* Tomato color background */
+    border-color: #dfd7e4; 
+    cursor: pointer;/* Tomato color border */
+}
+
+.btn-primary:hover {
+    background-color: #dec9eb; /* Darker shade for hover */
+    border-color: #dec9eb; /* Darker shade for hover */
+}
+
+.btn-secondary {
+    background-color: #b84646; /* Secondary color background */
+    border-color: #bd6d6d; /* Secondary color border */
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268; /* Darker shade for hover */
+    border-color: #545b62; /* Darker shade for hover */
+}
+
+#edit-profile-cancel {
+    background-color: #ff6347; /* Tomato color for button */
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+/* Profile Page Styles */
+
+.profile-container {
+    max-width: 600px;
+    margin: auto;
+    background-color: #1f1f1f; /* Slightly lighter dark grey for the container */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.profile-container h1 {
+    color: #ff6347; /* Tomato color for the heading */
+    margin-bottom: 20px;
+}
+
+.profile-info {
+    font-size: 1.2em;
+    line-height: 1.5;
+}
+
+.profile-info p {
+    margin: 10px 0;
+}
+
+.profile-info strong {
+    color: #f5f5f5; /* Light text color for labels */
+}
+
+.profile-info .btn {
+    display: inline-block;
+    background-color: #ff6347; /* Tomato color for the button */
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.profile-info .btn:hover {
+    background-color: #ff4500; /* Darker tomato color for hover effect */
+}
+
+
+/* Search Recipes Page Styles */
+
+.search-container {
+    max-width: 800px;
+    margin: auto;
+    background-color: #1f1f1f; /* Slightly lighter dark grey for the container */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    color: #f5f5f5;
+}
+
+.search-container h1, .search-container h2 {
+    color: #ff6347; /* Tomato color for headings */
+    margin-bottom: 20px;
+}
+
+.search-form .form-group {
+    margin-bottom: 15px;
+}
+
+.search-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #f5f5f5;
+}
+
+.search-form .form-input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #333;
+    color: #f5f5f5;
+}
+
+.search-form .btn {
+    background-color: #ff6347; /* Tomato color for button */
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.search-form .btn:hover {
+    background-color: #ff4500; /* Darker tomato color for hover effect */
+}
+
+.search-results ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.recipe-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+/* Specific class for search result images */
+.search-result-image {
+    width: 50px;
+    height: auto;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.recipe-link {
+    color: #ff6347; /* Tomato color for links */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.recipe-link:hover {
+    text-decoration: underline;
+}
+
+.error-message {
+    color: red;
+    font-size: 0.9em;
+}
+
+/* Recipe Page Styles */
+
+.recipe-container {
+    max-width: 800px;
+    margin: auto;
+    background-color: #1f1f1f; /* Slightly lighter dark grey for the container */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.recipe-container h1 {
+    color: #ff6347; /* Tomato color for the heading */
+    margin-bottom: 20px;
+}
+
+#recipe-image-infopage {
+    width: 100%;
+    height: auto;
+    max-height: 400px; /* Added to control image height */
+    border-radius: 10px;
+    object-fit: cover; /* Ensures the image covers the container */
+    margin-bottom: 20px; /* Added margin-bottom */
+}
+
+.recipe-details {
+    margin-bottom: 20px;
+}
+
+.recipe-details h2 {
+    color: #ff6347; /* Tomato color for the subheadings */
+}
+
+.recipe-details ul{
+    list-style-type: none;
+    padding: 0;
+}
+
+.recipe-details ol {
+    list-style-type: decimal; 
+    padding-left: 20px; 
+}
+
+.recipe-details li {
+    padding: 5px 0;
+}
+
+.meal-plan-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.meal-plan-form label {
+    margin-top: 10px;
+    color: #f5f5f5;
+}
+
+.meal-plan-form select {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #333;
+    color: #f5f5f5;
+}
+
+.meal-plan-form .btn {
+    background-color: #ff6347; /* Tomato color for buttons */
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.meal-plan-form .btn:hover {
+    background-color: #ff4500; /* Darker tomato color for hover effect */
+}
+
+.meal-plan-form .remove-btn {
+    background-color: #f44336; /* Red color for remove button */
+}
+
+.meal-plan-form .remove-btn:hover {
+    background-color: #d32f2f; /* Darker red color for hover effect */
+}
+
+
+/* Weekly Meal Plan Page Styles */
+
+.mealplan-container {
+    max-width: 100%;
+    margin: auto;
+    background-color: #1f1f1f; /* Slightly lighter dark grey for the container */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    color: #f5f5f5;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 20px;
+}
+
+.day-section {
+    background-color: #2f2f2f;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.day-section h2 {
+    color: #ff6347;
+    margin-bottom: 10px;
+}
+
+.meal-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.meal-item {
+    margin-bottom: 20px;
+}
+
+.meal-item h3 {
+    color: #f5f5f5;
+    margin-bottom: 10px;
+}
+
+.recipe-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.recipe-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.recipe-image {
+    width: 50px;
+    height: auto;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.recipe-link {
+    color: #f5f5f5;
+    text-decoration: none;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.recipe-link:hover {
+    text-decoration: underline;
+}
+
+.btn-remove {
+    background-color: #f44336; /* Red color for remove button */
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-left: auto;
+}
+
+.btn-remove:hover {
+    background-color: #d32f2f; /* Darker red color for hover effect */
+}
+
+.btn-add {
+    background-color: #ff6347; /* Tomato color for add button */
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.btn-add:hover {
+    background-color: #ff4500; /* Darker tomato color for hover effect */
+}
+
+.add-recipe-form {
+    display: none;
+    margin-top: 10px;
+    background-color: #2f2f2f;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.add-recipe-form label {
+    display: block;
+    margin-bottom: 5px;
+    color: #f5f5f5;
+}
+
+.add-recipe-form input[type="text"],
+.add-recipe-form textarea,
+.add-recipe-form input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #333;
+    color: #f5f5f5;
+}
+
+.add-recipe-form button[type="submit"] {
+    background-color: #ff6347;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.add-recipe-form button[type="submit"]:hover {
+    background-color: #ff4500;
+}
+
+.notes-section {
+    grid-column: span 1;
+}
+
+.notes-heading {
+    color: #f5f5f5; /* Change to white */
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.notes-textarea {
+    width: 95%;
+    height: 300px; /* Increase height */
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+}
+
+.notes-section button {
+    background-color: #ff6347;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.notes-section button:hover {
+    background-color: #ff4500; /* Darker tomato color for hover effect */
+}
+
+#week-select {
+    width: 100px;  /* Adjust the width as needed */
+    padding: 5px;  /* Adjust padding as needed */
+    font-size: 14px;  /* Adjust font size as needed */
+    border-radius: 4px;  /* Add rounded corners if desired */
+}
+
+/* Ensure the label and input are aligned nicely */
+.week-picker {
+    display: flex;
+    align-items: center;
+}
+
+.week-picker label {
+    margin-right: 10px;  /* Adjust the spacing between the label and the input */
+}
+
+
+/* Dropdown container - needed to position the dropdown content */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Style the dropdown button */
+.dropbtn {
+    background-color: #fdf8f7;
+    color: rgb(44, 35, 35);
+    padding: 10px 15px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    font-weight: bold
+}
+
+/* Dropdown content (hidden by default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+    background-color: #8edda6;
+}
+
+/* timer */
+
+.timer-container {
+    text-align: center;
+    margin-top: 50px;
+}
+.timer, .stopwatch {
+    margin: 20px 0;
+}
+.time-display {
+    font-size: 2em;
+    margin: 20px 0;
+}
+button {
+    padding: 10px 20px;
+    font-size: 1em;
+}
+.timer-input {
+    width: 200px;
+    text-align: center;
+    font-size: 1em;
+    margin: 0 5px;
+}

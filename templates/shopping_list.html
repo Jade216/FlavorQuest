@@ -1,0 +1,26 @@
+{% extends 'base.html' %} {% block content %}
+<div class="container">
+  <h1>{{ title }}</h1>
+
+  <form method="POST" action="{{ url_for('shopping_list') }}">
+    {{ form.hidden_tag() }}
+    <div>{{ form.item.label }} {{ form.item(size=32) }}</div>
+    <div>{{ form.submit() }}</div>
+  </form>
+
+  <ul>
+    {% for item in items %}
+    <li>
+      {{ item }}
+      <form
+        method="POST"
+        action="{{ url_for('remove_item', index=loop.index0) }}"
+        style="display: inline"
+      >
+        <button type="submit">Remove</button>
+      </form>
+    </li>
+    {% endfor %}
+  </ul>
+</div>
+{% endblock %}

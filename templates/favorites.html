@@ -1,0 +1,22 @@
+{% extends 'base.html' %} {% block content %}
+<h1>Your Favorite Recipes</h1>
+<ul id="favorites-list">
+  {% for favorite in favorites %}
+  <li data-id="{{ favorite.id }}">
+    <img
+      src="{{ favorite.recipe_image_url }}"
+      alt="{{ favorite.recipe_name }}"
+      width="100"
+    />
+    <p>{{ favorite.recipe_name }}</p>
+    <form
+      action="{{ url_for('remove_favorite', favorite_id=favorite.id) }}"
+      method="post"
+      style="display: inline"
+    >
+      <button type="submit" class="remove-btn">Remove</button>
+    </form>
+  </li>
+  {% endfor %}
+</ul>
+{% endblock %}

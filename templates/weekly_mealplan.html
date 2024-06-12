@@ -1,17 +1,113 @@
 {% extends "base.html" %} {% block content %}
 <h1>Weekly Meal Plan</h1>
-<ul>
-  {% for recipe in recipes %}
-  <li>
-    <a href="{{ url_for('recipe', recipe_id=recipe.id) }}">{{ recipe.name }}</a>
-    <form
-      action="{{ url_for('remove_from_mealplan', recipe_id=recipe.id) }}"
-      method="post"
-    >
-      <button type="submit">Remove from Meal Plan</button>
-    </form>
-  </li>
-  {% endfor %}
-</ul>
+
+<div class="mealplan-container">
+  <div class="week-picker">
+    <label for="week-select">Select Week:</label>
+    <input type="text" id="week-select" class="form-control" />
+  </div>
+  <div class="grid-container">
+    {% set days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday',
+    'Saturday', 'Sunday'] %} {% for day in days %}
+    <div class="day-section">
+      <h2>{{ day }} <span id="{{ day.lower() }}-date"></span></h2>
+      <ul class="meal-list">
+        {% set meals = ['Breakfast', 'Lunch', 'Dinner'] %} {% for meal in meals
+        %}
+        <li class="meal-item">
+          <h3>{{ meal }}</h3>
+          <ul class="recipe-list">
+            {% for recipe in recipes %} {% if recipe.day == day and recipe.meal
+            == meal %}
+            <li class="recipe-item">
+              <img
+                src="{{ recipe.recipe.image_url }}"
+                alt="{{ recipe.recipe.name }}"
+                class="recipe-image"
+              />
+              <a
+                href="{{ url_for('recipe', recipe_id=recipe.recipe.id) }}"
+                class="recipe-link"
+                >{{ recipe.recipe.name }}</a
+              >
+              <form
+                action="{{ url_for('remove_from_mealplan', recipe_id=recipe.recipe.id) }}"
+                method="post"
+              >
+                <button type="submit" class="btn-remove">Remove</button>
+              </form>
+            </li>
+            {% endif %} {% endfor %}
+          </ul>
+          <button
+            onclick="document.getElementById('add-recipe-form-{{ day }}-{{ meal }}').style.display='block'"
+            class="btn-add"
+          >
+            Add
+          </button>
+          <form
+            id="add-recipe-form-{{ day }}-{{ meal }}"
+            action="{{ url_for('add_to_mealplan', day=day, meal=meal) }}"
+            method="post"
+            class="add-recipe-form"
+          >
+            <label for="recipe_name">Recipe Name:</label>
+            <input type="text" name="recipe_name" required />
+            <label for="recipe_instructions">Instructions:</label>
+            <textarea name="recipe_instructions" required></textarea>
+            <label for="recipe_image">Image(optional):</label>
+            <input type="file" name="recipe_image" accept="image/*" />
+            <input type="hidden" name="day" value="{{ day }}" />
+            <input type="hidden" name="meal" value="{{ meal }}" />
+            <button type="submit">Add</button>
+            <button type="button" class="btn-cancel" onclick="document.getElementById('add-recipe-form-{{ day }}-{{ meal }}').style.display='none'"">Cancel</button>
+          </form>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+    {% endfor %}
+    <div class="notes-section">
+      <h2 class="notes-heading">Notes</h2>
+      <form id="notes-form" action="{{url_for('save_notes')}}" method="post">
+        <textarea
+          id="notes-textarea"
+          class="notes-textarea"
+          name="notes"
+          readonly
+        >
+{{notes}}</textarea
+        >
+        <button
+          id="edit-notes"
+          type="button"
+          class="btn-add"
+          onclick="editNotes()"
+        >
+          Start Adding Notes
+        </button>
+        <button
+          id="save-notes"
+          type="submit"
+          class="btn-add"
+          style="display: none"
+        >
+          Save
+        </button>
+        <button
+          id="cancel-edit"
+          type="button"
+          class="btn-add"
+          style="display: none"
+          onclick="cancelEdit()"
+        >
+          Cancel
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script src="{{ url_for('static', filename='javascript.js') }}"></script>
 
 {% endblock %}

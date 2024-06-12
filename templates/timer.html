@@ -1,0 +1,43 @@
+{% extends "base.html" %} {% block content %}
+<div class="timer-container">
+  <h1>Timer and Stopwatch</h1>
+
+  <div class="stopwatch">
+    <h2>Stopwatch</h2>
+    <div id="stopwatch-display" class="time-display">00:00:00</div>
+    <button onclick="startStopwatch()">Start</button>
+    <button onclick="stopStopwatch()">Stop</button>
+    <button onclick="resetStopwatch()">Reset</button>
+  </div>
+
+  <div class="timer">
+    <h2>Timer</h2>
+    <input
+      type="number"
+      id="timer-minutes"
+      class="timer-input"
+      placeholder="Enter Minutes"
+      min="0"
+    />
+    <input
+      type="number"
+      id="timer-seconds"
+      class="timer-input"
+      placeholder="Enter Seconds"
+      min="0"
+    />
+    <div id="timer-display" class="time-display">00:00:00</div>
+    <button onclick="startTimer()">Start</button>
+    <button onclick="stopTimer()">Stop</button>
+    <button onclick="resetTimer()">Reset</button>
+  </div>
+  <audio
+    id="alarm-sound"
+    src="{{ url_for('static', filename='alarm.mp3') }}"
+    preload="auto"
+  ></audio>
+</div>
+
+<script src="{{ url_for('static', filename='timer.js') }}"></script>
+
+{% endblock %}

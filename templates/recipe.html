@@ -1,20 +1,77 @@
 {% extends "base.html" %} {% block content %}
-<h1>{{ recipe['title'] }}</h1>
-<img src="{{ recipe['image'] }}" alt="{{ recipe['title'] }}" />
-<p>{{ recipe['instructions'] }}</p>
+<div class="recipe-container">
+  <h1>{{ recipe.name }}</h1>
+  <img
+    src="{{ recipe.image_url }}"
+    alt="{{ recipe.name }}"
+    class="recipe-image"
+    id="recipe-image-infopage"
+  />
 
-<form
-  action="{{ url_for('add_to_mealplan', recipe_id=recipe['id']) }}"
-  method="post"
->
-  <button type="submit">Add to Meal Plan</button>
-</form>
+  <div class="recipe-details">
+    <h2>Servings</h2>
+    <p>{{servings}}</p>
 
-<form
-  action="{{ url_for('remove_from_mealplan', recipe_id=recipe['id']) }}"
-  method="post"
->
-  <button type="submit">Remove from Meal Plan</button>
-</form>
+    <h2>Ingredients</h2>
+    <ul>
+      {% for ingredient in ingredients %}
+      <li>
+        {{ ingredient.name}} - {{ ingredient.amount}} {{ ingredient.unit}}
+      </li>
+      {% endfor %}
+    </ul>
+
+    <h2>Equipment</h2>
+    <ul>
+      {% for equip in equipment %}
+      <li>{{equip}}</li>
+      {% endfor %}
+    </ul>
+
+    <h2>Instructions</h2>
+    <ol>
+      {% for step in steps %}
+      <li>{{ step.step}}</li>
+      {% endfor %}
+    </ol>
+
+    {% if recipe.nutrition %}
+    <h2>Nutrition</h2>
+    <p>{{recipe.nutrition}}</p>
+    {% endif %}
+  </div>
+
+  <div class="meal-plan-form">
+    <form action="{{ url_for('add_api_recipe_to_mealplan')}}" method="post">
+      <label for="day">Select Day:</label>
+      <select name="day" id="day">
+        <option value="Monday">Monday</option>
+        <option value="Tuesday">Tuesday</option>
+        <option value="Wednesday">Wednesday</option>
+        <option value="Thursday">Thursday</option>
+        <option value="Friday">Friday</option>
+        <option value="Saturday">Saturday</option>
+        <option value="Sunday">Sunday</option>
+      </select>
+
+      <label for="meal">Select Meal:</label>
+      <select name="meal" id="meal">
+        <option value="Breakfast">Breakfast</option>
+        <option value="Lunch">Lunch</option>
+        <option value="Dinner">Dinner</option>
+      </select>
+
+      <input type="hidden" name="recipe_id" value="{{recipe.id}}" />
+      <button type="submit" class="btn">Add to Meal Plan</button>
+    </form>
+  </div>
+  <form
+    action="{{ url_for('like_recipe', recipe_id=recipe.id) }}"
+    method="post"
+    style="display: inline"
+  >
+    <button type="submit" class="btn">Like</button>
+  </form>
+</div>
 
 {% endblock %}

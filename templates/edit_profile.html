@@ -1,0 +1,37 @@
+{% extends 'base.html' %} {% block content %}
+
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card custom-card">
+        <div class="card-header custom-card-header">
+          <h1 id="edit-profile" class="h3 mb-0">Edit Profile</h1>
+        </div>
+        <div class="card-body">
+          <form method="post">
+            {{ form.hidden_tag() }}
+            <div class="form-group mb-3">
+              {{ form.username.label(class='form-label') }} {{
+              form.username(class='form-control custom-form-control') }}
+            </div>
+            <div class="form-group mb-3">
+              {{ form.email.label(class='form-label') }} {{
+              form.email(class='form-control custom-form-control') }}
+            </div>
+            <div class="form-group text-center">
+              {{ form.submit(class='btn btn-primary custom-btn-primary') }}
+              <a
+                href="{{ url_for('profile') }}"
+                class="btn btn-secondary custom-btn-secondary"
+                id="edit-profile-cancel"
+                >Cancel</a
+              >
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

@@ -8,7 +8,6 @@ class RegistrationForm(FlaskForm):
     email = StringField('Email', validators=[DataRequired(), Email()])
     password = PasswordField('Password', validators=[DataRequired(), Length(min=6,max=20)])
     confirm_password = PasswordField('Confirm Password', validators=[DataRequired(), EqualTo('password')])
-    submit = SubmitField('Sign Up')
 
     def validate_username(self, username):
         user = User.query.filter_by(username=username.data).first()
@@ -30,3 +29,13 @@ class LoginForm(FlaskForm):
 class IngredientSearchForm(FlaskForm):
     ingredients = StringField('Ingredients', validators=[DataRequired()])
     submit = SubmitField('Search')
+
+
+class EditProfileForm(FlaskForm):
+    username = StringField('Username', validators=[DataRequired()])
+    email = StringField('Email', validators=[DataRequired(), Email()])
+    submit = SubmitField('Save')
+
+class ShoppingListForm(FlaskForm):
+    item = StringField('Item', validators=[DataRequired()])
+    submit = SubmitField('Add')

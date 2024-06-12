@@ -1,6 +1,48 @@
 {% extends "base.html" %} {% block content %}
-<h1>Welcome to FlavorQuest</h1>
-<p>
-  Discover recipes based on your available ingredients and dietary preferences.
-</p>
+
+<div class="homepage-container">
+  <div class="intro-section">
+    <h1>Welcome to FlavorQuest</h1>
+    <p>
+      Discover delicious recipes tailored to your available ingredients and
+      dietary preferences. Whether you're looking for a quick breakfast, a
+      hearty lunch, or an indulgent dinner, FlavorQuest has you covered.
+    </p>
+    <p>
+      Start your culinary adventure with FlavorQuest and transform everyday
+      ingredients into extraordinary meals. Explore, cook, and enjoy!
+    </p>
+  </div>
+
+  <div class="image-gallery">
+    <img
+      src="https://images.unsplash.com/photo-1490645935967-10de6ba17061"
+      alt="Delicious Breakfast"
+      class="homepage-image"
+    />
+    <img
+      src="https://images.unsplash.com/photo-1504674900247-0877df9cc836"
+      alt="Healthy Salad"
+      class="homepage-image"
+    />
+    <img
+      src="https://plus.unsplash.com/premium_photo-1716892885709-ab367dc56624?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+      alt="Delicious Dessert"
+      class="homepage-image"
+    />
+  </div>
+
+  <div class="features-section">
+    <h2>Features</h2>
+    <ul>
+      <li>Search for recipes based on your ingredients</li>
+      <li>Save your favorite recipes</li>
+      <li>Plan your meals for the week</li>
+      <li>
+        Explore dietary-specific recipes: vegan, gluten-free, dairy-free, and
+        more
+      </li>
+    </ul>
+  </div>
+</div>
 {% endblock %}
