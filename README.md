@@ -31,3 +31,54 @@ Database: PostgreSQL
 APIs: Spoonacular API
 Authentication: Flask-Login, Flask-Bcrypt
 Development Tools: Flask-Migrate, Flask-DebugToolbar, dotenv
+
+Installation
+Prerequisites
+Before setting up the project, ensure you have the following installed:
+
+- Python 3.10+
+- pip
+- Virtualenv (recommended)
+
+Clone the Repository:
+git clone https://github.com/Jade216/FlavorQuest.git
+cd FlavorQuest
+
+Create and Activate Virtual Environment:
+python3 -m venv venv
+source venv/bin/activate
+
+Install Dependencies:
+pip install -r requirements.txt
+
+Setup
+Environment Variables
+Create a .env file in the root directory:
+FLASK_APP=app.py
+FLASK_ENV=development
+SECRET_KEY=your_secret_key
+SQLALCHEMY_DATABASE_URI=sqlite:///flavorquest.db
+
+Database Migration:
+flask db init
+flask db migrate
+flask db upgrade
+
+Running the Application
+Start the Flask application:
+flask run
+
+Access the application at http://127.0.0.1:5000/
+
+Contributing
+Fork the repository, create a feature branch, commit your changes, and open a pull request.
+
+Project Structure:
+FlavorQuest/
+├── app.py # Main application file
+├── requirements.txt # Dependencies
+├── templates/ # HTML templates
+├── static/ # Static files
+├── models.py # Database models
+├── forms.py # Flask forms
+└── README.md # This README file

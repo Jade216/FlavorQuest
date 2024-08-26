@@ -403,12 +403,13 @@ def shopping_list():
     form = ShoppingListForm()
     if form.validate_on_submit():
         item_name = form.item.data
-        if not current_user.shopping_list:
+        if current_user.shopping_list is None:
             current_user.shopping_list = []
         current_user.shopping_list.append(item_name)
         db.session.commit()
         flash(f'"{item_name}" added to your shopping list!', 'success')
-    return render_template('shopping_list.html', form=form, items=current_user.shopping_list)
+    items = current_user.shopping_list or []
+    return render_template('shopping_list.html', form=form, items=items)
 
 
 @app.route('/shoppinglist_add', methods=['POST'])
@@ -430,7 +431,9 @@ def shoppinglist_add():
 @login_required
 def remove_item(index):
     if 0 <= index < len(current_user.shopping_list):
-        removed_item = current_user.shopping_list.pop(index)
+        updated_list = current_user.shopping_list.copy()
+        removed_item = updated_list.pop(index)
+        current_user.shopping_list = updated_list
         db.session.commit()
         flash(f'"{removed_item}" removed from your shopping list!', 'success')
     else:
