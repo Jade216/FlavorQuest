@@ -24,6 +24,13 @@ class User(db.Model, UserMixin):
     meal_plans = db.relationship('WeeklyMealPlan', backref='user', lazy=True)
     favorite_recipes = db.relationship('FavoriteRecipe', backref='user', lazy=True)
 
+
+# class ShoppingListItem(db.Model):
+#     id = db.Column(db.Integer, primary_key=True)
+#     item_name = db.Column(db.String(100), nullable=False)
+#     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    
+
 class UserNote(db.Model):
     __tablename__ = 'user_notes'
     
