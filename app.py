@@ -6,7 +6,7 @@ from flask_bcrypt import Bcrypt
 from flask_migrate import Migrate
 
 from forms import RegistrationForm, LoginForm, IngredientSearchForm, EditProfileForm, ShoppingListForm
-from models import db, connect_db, User, WeeklyMealPlan, UserNote, Recipe, Ingredient, RecipeIngredient, FavoriteRecipe
+from models import db, connect_db, User, WeeklyMealPlan, UserNote, Recipe, Ingredient, RecipeIngredient, FavoriteRecipe, ShoppingListItem
 import requests
 from dotenv import load_dotenv
 from sqlalchemy.exc import IntegrityError
@@ -397,72 +397,73 @@ def save_notes():
 def timer():
     return render_template('timer.html', title='Timer')
 
-@app.route('/shopping_list', methods=['GET', 'POST'])
-@login_required
-def shopping_list():
-    form = ShoppingListForm()
-    if form.validate_on_submit():
-        item_name = form.item.data
-        if current_user.shopping_list is None:
-            current_user.shopping_list = []
-        current_user.shopping_list.append(item_name)
-        
-        if 'items' not in session:
-            session['items'] = []
-        db.session.commit()
-        flash(f'"{item_name}" added to your shopping list!', 'success')
-        session['items'].append(item_name)
-        return redirect(url_for('shopping_list'))
-  
-    return render_template('shopping_list.html', form=form, items=session.get('items', []))
-
-
-@app.route('/remove_item/<int:index>', methods=['POST'])
-@login_required
-def remove_item(index):
-    items = session.get('items', [])
-    if 0 <= index < len(items):
-        removed_item = items.pop(index)
-        session['items'] = items
-        flash(f'"{removed_item}" removed from your shopping list!', 'success')
-    else:
-        flash('Invalid item index.', 'danger')
-    return redirect(url_for('shopping_list'))
-
-
 # @app.route('/shopping_list', methods=['GET', 'POST'])
 # @login_required
 # def shopping_list():
 #     form = ShoppingListForm()
 #     if form.validate_on_submit():
-#         item_name = form.item.data.strip()
-#         if not item_name:
-#             flash('Item name cannot be empty.', 'warning')
-#             return redirect(url_for('shopping_list'))
+#         item_name = form.item.data
+#         if current_user.shopping_list is None:
+#             current_user.shopping_list = []
+#         current_user.shopping_list.append(item_name)
         
-#         # Create a new ShoppingListItem instance
-#         new_item = ShoppingListItem(item_name=item_name, user=current_user)
-#         db.session.add(new_item)
+#         if 'items' not in session:
+#             session['items'] = []
 #         db.session.commit()
-        
 #         flash(f'"{item_name}" added to your shopping list!', 'success')
+#         session['items'].append(item_name)
 #         return redirect(url_for('shopping_list'))
-    
-#     # Retrieve all shopping list items for the current user
-#     items = ShoppingListItem.query.filter_by(user_id=current_user.id).all()
-#     return render_template('shopping_list.html', form=form, items=items)
+  
+#     return render_template('shopping_list.html', form=form, items=session.get('items', []))
 
-# @app.route('/remove_item/<int:item_id>', methods=['POST'])
+
+# @app.route('/remove_item/<int:index>', methods=['POST'])
 # @login_required
-# def remove_item(item_id):
-#     item = ShoppingListItem.query.filter_by(id=item_id, user_id=current_user.id).first()
-#     if item:
-#         db.session.delete(item)
-#         db.session.commit()
-#         flash(f'"{item.item_name}" removed from your shopping list!', 'success')
+# def remove_item(index):
+#     items = session.get('items', [])
+#     if 0 <= index < len(items):
+#         removed_item = items.pop(index)
+#         session['items'] = items
+#         flash(f'"{removed_item}" removed from your shopping list!', 'success')
 #     else:
-#         flash('Item not found or unauthorized action.', 'danger')
+#         flash('Invalid item index.', 'danger')
 #     return redirect(url_for('shopping_list'))
+
+
+@app.route('/shopping_list', methods=['GET', 'POST'])
+@login_required
+def shopping_list():
+    form = ShoppingListForm()
+    if form.validate_on_submit():
+        item_name = form.item.data.strip()
+        if not item_name:
+            flash('Item name cannot be empty.', 'warning')
+            return redirect(url_for('shopping_list'))
+        
+        # Create a new ShoppingListItem instance
+        print(current_user.id)
+        new_item = ShoppingListItem(item_name=item_name, user_id=current_user.id)
+        db.session.add(new_item)
+        db.session.commit()
+        
+        flash(f'"{item_name}" added to your shopping list!', 'success')
+        return redirect(url_for('shopping_list'))
+    
+    # Retrieve all shopping list items for the current user
+    items = ShoppingListItem.query.filter_by(user_id=current_user.id).all()
+    return render_template('shopping_list.html', form=form, items=items)
+
+@app.route('/remove_item/<int:item_id>', methods=['POST'])
+@login_required
+def remove_item(item_id):
+    item = ShoppingListItem.query.filter_by(id=item_id, user_id=current_user.id).first()
+    if item:
+        db.session.delete(item)
+        db.session.commit()
+        flash(f'"{item.item_name}" removed from your shopping list!', 'success')
+    else:
+        flash('Item not found or unauthorized action.', 'danger')
+    return redirect(url_for('shopping_list'))
 
 
 

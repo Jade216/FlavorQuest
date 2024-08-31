@@ -25,10 +25,11 @@ class User(db.Model, UserMixin):
     favorite_recipes = db.relationship('FavoriteRecipe', backref='user', lazy=True)
 
 
-# class ShoppingListItem(db.Model):
-#     id = db.Column(db.Integer, primary_key=True)
-#     item_name = db.Column(db.String(100), nullable=False)
-#     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+class ShoppingListItem(db.Model):
+
+    id = db.Column(db.Integer, primary_key=True)
+    item_name = db.Column(db.String(100), nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
     
 
 class UserNote(db.Model):
