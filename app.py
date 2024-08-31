@@ -451,6 +451,7 @@ def shopping_list():
     
     # Retrieve all shopping list items for the current user
     items = ShoppingListItem.query.filter_by(user_id=current_user.id).all()
+    
     return render_template('shopping_list.html', form=form, items=items)
 
 @app.route('/remove_item/<int:item_id>', methods=['POST'])
