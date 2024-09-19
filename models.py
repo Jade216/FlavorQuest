@@ -47,7 +47,7 @@ class Recipe(db.Model):
     instructions = db.Column(db.Text, nullable=False)
     nutrition = db.Column(db.Text)
     image_url = db.Column(db.String, default='https://aherousa.org/admin/fm/source/empty.png')
-
+    
     meal_plans = db.relationship('WeeklyMealPlan', backref='recipe', lazy=True)
     favorite_recipes = db.relationship('FavoriteRecipe', backref='recipe', lazy=True)
 

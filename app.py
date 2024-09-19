@@ -397,37 +397,6 @@ def save_notes():
 def timer():
     return render_template('timer.html', title='Timer')
 
-# @app.route('/shopping_list', methods=['GET', 'POST'])
-# @login_required
-# def shopping_list():
-#     form = ShoppingListForm()
-#     if form.validate_on_submit():
-#         item_name = form.item.data
-#         if current_user.shopping_list is None:
-#             current_user.shopping_list = []
-#         current_user.shopping_list.append(item_name)
-        
-#         if 'items' not in session:
-#             session['items'] = []
-#         db.session.commit()
-#         flash(f'"{item_name}" added to your shopping list!', 'success')
-#         session['items'].append(item_name)
-#         return redirect(url_for('shopping_list'))
-  
-#     return render_template('shopping_list.html', form=form, items=session.get('items', []))
-
-
-# @app.route('/remove_item/<int:index>', methods=['POST'])
-# @login_required
-# def remove_item(index):
-#     items = session.get('items', [])
-#     if 0 <= index < len(items):
-#         removed_item = items.pop(index)
-#         session['items'] = items
-#         flash(f'"{removed_item}" removed from your shopping list!', 'success')
-#     else:
-#         flash('Invalid item index.', 'danger')
-#     return redirect(url_for('shopping_list'))
 
 
 @app.route('/shopping_list', methods=['GET', 'POST'])
